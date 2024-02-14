@@ -11,7 +11,7 @@ spec:
   replicas: 2
   template:
     metadata:
-      label:
+      labels:
         app: "goserver"
     spec:
       containers:
