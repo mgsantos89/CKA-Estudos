@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: "goserver"
+  labels:
+    app: "goserver"
+spec:
+  selector:
+    matchLabels:
+      app: "goserver"
+  replicas: 2
+  template:
+    labels:
+      app: "goserver"
+    spec:
+      containers:
+       - name: "goserver"
+         image: "mgsantos89/hello-go:latest"
