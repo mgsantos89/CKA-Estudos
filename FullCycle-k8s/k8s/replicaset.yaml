@@ -10,8 +10,9 @@ spec:
       app: "goserver"
   replicas: 2
   template:
-    labels:
-      app: "goserver"
+    metadata:
+      label:
+        app: "goserver"
     spec:
       containers:
        - name: "goserver"
