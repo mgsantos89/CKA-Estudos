@@ -25,14 +25,20 @@ spec:
          #   value: "35"
          ##########
          #Add Env. Coletada do Configmap
-         env: 
-          - name: NAME
-            valueFrom:
-              configMapKeyRef:
-                name: goserver-env
-                key: NAME
-          - name: AGE
-            valueFrom:
-              configMapKeyRef:
-                name: goserver-env
-                key: AGE
+         #Uma a Uma
+         #env: 
+         # - name: NAME
+         #   valueFrom:
+         #     configMapKeyRef:
+         #       name: goserver-env
+         #       key: NAME
+         # - name: AGE
+         #   valueFrom:
+         #     configMapKeyRef:
+         #       name: goserver-env
+         #       key: AGE
+         ############
+         #Add EndFrom e carregar todas as variaveis do Configmap
+         envFrom:
+          - configMapRef:
+              name: goserver-env
