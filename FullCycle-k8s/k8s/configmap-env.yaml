@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: goserver-env
+data:
+  NAME: "Marco Gomes dos Santos"
+  AGE: "35"

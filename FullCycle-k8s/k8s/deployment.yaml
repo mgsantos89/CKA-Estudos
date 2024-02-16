@@ -17,9 +17,22 @@ spec:
       containers:
        - name: "goserver"
          image: "mgsantos89/hello-go:latest"
-         #Add Env
-         env:
+         #Add Env hardcoded Direto no Deployment
+         #env:
+         # - name: NAME
+         #   value: "Marco Gomes"
+         # - name: AGE 
+         #   value: "35"
+         ##########
+         #Add Env. Coletada do Configmap
+         env: 
           - name: NAME
-            value: "Marco Gomes"
-          - name: AGE 
-            value: "35"
+            valueFrom:
+              configMapKeyRef:
+                name: goserver-env
+                key: NAME
+          - name: AGE
+            valueFrom:
+              configMapKeyRef:
+                name: goserver-env
+                key: AGE
