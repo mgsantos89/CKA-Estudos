@@ -17,22 +17,31 @@ spec:
       containers:
        - name: "goserver"
          image: "mgsantos89/hello-go:latest"
-         livenessProbe:
+         readinessProbe:
            httpGet: 
             path: /healthz
             port: 8000
-           periodSeconds: 5
-           failureThreshold: 5
-           timeoutSeconds: 1
-           successThreshold: 1
-         #Add Env hardcoded Direto no Deployment
+           periodSeconds: 3
+           failureThreshold: 3
+         #livenessProbe:
+         #  httpGet: 
+         #   path: /healthz
+         #   port: 8000
+         #  periodSeconds: 5
+         #  failureThreshold: 5
+         #  timeoutSeconds: 1
+         #  successThreshold: 1
+         ########################################
+         #Add Env hardcoded Direto no Deployment#
+         ########################################
          #env:
          # - name: NAME
          #   value: "Marco Gomes"
          # - name: AGE 
          #   value: "35"
-         ##########
-         #Add Env. Coletada do Configmap
+         ################################
+         #Add Env. Coletada do Configmap#
+         ################################
          #Uma a Uma
          #env: 
          # - name: NAME
@@ -45,8 +54,9 @@ spec:
          #     configMapKeyRef:
          #       name: goserver-env
          #       key: AGE
-         ############
-         #Add EndFrom e carregar todas as variaveis do Configmap
+         ########################################################
+         #Add EndFrom e carregar todas as variaveis do Configmap#
+         ########################################################
          envFrom:
           - configMapRef:
               name: goserver-env
