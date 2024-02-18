@@ -44,8 +44,8 @@ spec:
               name: goserver-env
         #Montando um volume
          volumeMounts:
-           - name:  "/go/myfamily"
-             mountPath:  config
+           - mountPath:  "/go/myfamily"
+             name:  config
       #Declarando volume com dados do confimap
       volumes:
         - name: configmap
