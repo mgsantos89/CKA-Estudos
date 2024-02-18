@@ -17,20 +17,27 @@ spec:
       containers:
        - name: "goserver"
          image: "mgsantos89/hello-go:latest"
+         startupProbe:
+           httpGet: 
+            path: /healthz
+            port: 8000
+           periodSeconds: 3
+           failureThreshold: 30
          readinessProbe:
            httpGet: 
             path: /healthz
             port: 8000
            periodSeconds: 3
            failureThreshold: 3
-         #livenessProbe:
-         #  httpGet: 
-         #   path: /healthz
-         #   port: 8000
-         #  periodSeconds: 5
-         #  failureThreshold: 5
-         #  timeoutSeconds: 1
-         #  successThreshold: 1
+           initialDelaySeconds: 10
+         livenessProbe:
+           httpGet: 
+            path: /healthz
+            port: 8000
+           periodSeconds: 5
+           failureThreshold: 5
+           timeoutSeconds: 1
+           successThreshold: 1
          ########################################
          #Add Env hardcoded Direto no Deployment#
          ########################################
