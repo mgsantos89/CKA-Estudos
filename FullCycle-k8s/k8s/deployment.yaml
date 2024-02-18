@@ -42,3 +42,15 @@ spec:
          envFrom:
           - configMapRef:
               name: goserver-env
+        #Montando um volume
+         volumeMounts:
+           - name:  "/go/myfamily"
+             mountPath:  config
+      #Declarando volume com dados do confimap
+      volumes:
+        - name: configmap
+          configMap: 
+            name: configmap-family
+            items: 
+            - key: members
+              path: "family.txt"
