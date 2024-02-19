@@ -18,12 +18,12 @@ spec:
        - name: "goserver"
          image: "mgsantos89/hello-go:latest"
          resources:
-           requests: #minimimo Reservado
-             cpu: 100m
-             memory: 20Mi
-           limits: #maximo de uso que ele pode utilizar
-             cpu: 200m
-             memory: 25mi 
+          requests: #minimimo Reservado
+            cpu: 100m
+            memory: 20Mi
+          limits: #maximo de uso que ele pode utilizar
+            cpu: 200m
+            memory: 25Mi 
          startupProbe:
            httpGet: 
             path: /healthz
