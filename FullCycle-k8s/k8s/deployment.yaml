@@ -78,10 +78,15 @@ spec:
               name: goserver-secret
         #Montando um volume
          volumeMounts:
+           - mountPath: "/go/pvc"
+             name: goserver-pvc
            - mountPath:  "/go/myfamily"
              name:  config
       #Declarando volume com dados do confimap
       volumes:
+        - name: goserver-pvc
+          persistentVolumeClaim:
+            claimName: goserver-pvc
         - name: config
           configMap: 
             name: configmap-family
