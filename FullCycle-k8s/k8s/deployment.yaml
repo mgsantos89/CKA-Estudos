@@ -19,10 +19,10 @@ spec:
          image: "mgsantos89/hello-go:latest"
          resources:
           requests: #minimimo Reservado
-            cpu: 100m
+            cpu: 1m
             memory: 20Mi
           limits: #maximo de uso que ele pode utilizar
-            cpu: 200m
+            cpu: 20m
             memory: 25Mi 
          startupProbe:
            httpGet: 
