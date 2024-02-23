@@ -9,7 +9,7 @@ spec:
   type: ClusterIP
   ports:
   - name:  "goserver-http"
-    port:  8000 # PORT se refere a porta do SVC, que pode ser a que eu quiser
+    port:  80 # PORT se refere a porta do SVC, que pode ser a que eu quiser
     targetPort: 8000 # TARGETPORT se refere a ponta de escuta do container no pod, caso não seja informado sera redirecionado para um numero de porta igual ao do servico
     protocol: TCP
 ---
